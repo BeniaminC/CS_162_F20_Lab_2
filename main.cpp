@@ -26,7 +26,7 @@ int main() {
     // therefore...
     
     // you can think of a streaming object as a bufffer
-    char buffer[256];
+    char buffer[256]; // USE STRINGS FOR YOUR LAB
 
     outputFile << "This is a test file\n";
     inputFile >> buffer;
@@ -42,6 +42,10 @@ int main() {
     std::ifstream(const char* filename, std::ios::openmode mode = std::ios::in);
     std::ofstream(const char* filename, std::ios::openmode mode = std::ios::out);
     std::fstream(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
+    // for c++11, you can pass in string objects;
+    std::ifstream(const std::string& filename, std::ios::openmode mode = std::ios::in);
+    std::ofstream(const std::string& filename, std::ios::openmode mode = std::ios::out);
+    std::fstream(const std::string& filename, std::ios::openmode mode = std::ios::in | std::ios::out);
 
     //open prototypes
     void open(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
@@ -59,9 +63,9 @@ int main() {
     std::ios::in | std::ios::out | std::ios::ate;
 
     // all on one line
-    std::fstream outFile("inout.txt", std::ios::in | std::ios::app);
-    outFile.close();
-    outFile.open("inout.txt", std::ios::out | std::ios::app);
+    std::fstream some_file("inout.txt", std::ios::in); // creates fstream object and uses constructor to set flags
+    some_file.close();
+    some_file.open("inout.txt", std::ios::out | std::ios::app); // uses same fstream object to open a file 
 
     // flags
     std::ios::eofbit; // end of an input stream
@@ -91,13 +95,13 @@ int main() {
         std::string first_name;
         std::string last_name;
         std::string major;
-    }
+    };
 
     data test_struct;
     int size_of_data;
 
     // you can use a while loop to iterate over the data set
-    while (dataFile) {
+    while (dataFile) { // while the file object has no error flags....
         fileStream >> test_struct.id;
         fileStream >> test_struct.first_name;
         // ....
