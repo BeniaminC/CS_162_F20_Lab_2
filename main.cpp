@@ -45,7 +45,12 @@ int main() {
     // for c++11, you can pass in string objects;
     std::ifstream(const std::string& filename, std::ios::openmode mode = std::ios::in);
     std::ofstream(const std::string& filename, std::ios::openmode mode = std::ios::out);
-    std::fstream(const std::string& filename, std::ios::openmode mode = std::ios::in | std::ios::out);
+    std::fstream(const std::string filename, std::ios::openmode mode = std::ios::in | std::ios::out);
+
+    // example
+    std::string create_a_string;
+    create_a_string = "some_file.txt";
+    std::fstream stream_obj(create_a_string, std::ios:in);
 
     //open prototypes
     void open(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
