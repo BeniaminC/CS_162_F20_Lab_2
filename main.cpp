@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+// ascii A-Z : 65-90, a-z : 97-122 (inclusive)
+
 int main() {
 
     // BELOW ARE NOTES AND IS NOT INTENDED TO BE COMPILED AND RAN
@@ -45,12 +47,12 @@ int main() {
     // for c++11, you can pass in string objects;
     std::ifstream(const std::string& filename, std::ios::openmode mode = std::ios::in);
     std::ofstream(const std::string& filename, std::ios::openmode mode = std::ios::out);
-    std::fstream(const std::string filename, std::ios::openmode mode = std::ios::in | std::ios::out);
+    std::fstream(const std::string& filename, std::ios::openmode mode = std::ios::in | std::ios::out);
 
     // example
     std::string create_a_string;
     create_a_string = "some_file.txt";
-    std::fstream stream_obj(create_a_string, std::ios:in);
+    std::fstream stream_obj(create_a_string, std::ios:in | std::ios::out | std::ios::app) ;
 
     //open prototypes
     void open(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
