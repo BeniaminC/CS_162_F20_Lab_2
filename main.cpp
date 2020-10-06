@@ -1,6 +1,11 @@
 #include <fstream> // ofstream, ifstream, fstream objects
+#include <iostream>
+#include <string>
 
 int main() {
+
+    // BELOW ARE NOTES AND IS NOT INTENDED TO BE COMPILED AND RAN
+
     // ofstream - output file stream (creates file and writes data to it)
     // ifstream - input file stream (open existing file and reads data from it)
     // fstream - file stream (used for both reading and writing)
@@ -26,40 +31,44 @@ int main() {
     outputFile << "This is a test file\n";
     inputFile >> buffer;
 
+    //c++11 allows you to use string objects
+    std::string easier_buffer;
+    inputFile >> easier_buffer;
+
     // make sure to close a file when it is no longer being used
     inputFile.close();
 
     // open settings of prototypes
-    ifstream(const char* filename, ios::openmode mode = ios::in);
-    ofstream(const char* filename, ios::openmode mode = ios::out);
-    fstream(const char* filename, ios::openmode mode = ios::in | ios::out);
+    std::ifstream(const char* filename, std::ios::openmode mode = std::ios::in);
+    std::ofstream(const char* filename, std::ios::openmode mode = std::ios::out);
+    std::fstream(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
 
     //open prototypes
-    void open(const char* filename, ios::openmode mode = ios::in | ios::out);
-    void open(const string& filename, ios::openmode mode = ios::in | ios::out);
+    void open(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
+    void open(const std::string& filename, std::ios::openmode mode = std::ios::in | std::ios::out);
 
     // file mode flags
-    ios::app // oupput will always take place at the end of the file
-    ios::ate // output will intially take place at end of file
-    ios::binary // data read or written to file in binary form
-    ios::in // input, fail if not existing
-    ios::out // output, creates file if not existed
-    ios::trunc // contents are discarded and its size is truncated to zero
+    std::ios::app; // oupput will always take place at the end of the file
+    std::ios::ate; // output will intially take place at end of file
+    std::ios::binary; // data read or written to file in binary form
+    std::ios::in; // input, fail if not existing
+    std::ios::out; // output, creates file if not existed
+    std::ios::trunc; // contents are discarded and its size is truncated to zero
 
     // binary operator to combine flags
-    ios::in | ios::out | ios::ate
+    std::ios::in | std::ios::out | std::ios::ate;
 
     // all on one line
-    std::fstream outFile("inout.txt", ios::in | ios::app);
+    std::fstream outFile("inout.txt", std::ios::in | std::ios::app);
     outFile.close();
-    outFile.open("inout.txt", ios::out | ios::app);
+    outFile.open("inout.txt", std::ios::out | std::ios::app);
 
     // flags
-    ios::eofbit // end of an input stream
-    ios::failbit // operation attempted failed
-    ios::hardfail // unrecoverable fail
-    ios::badbit // invalid operation
-    ios::goodbit // all above are not set
+    std::ios::eofbit; // end of an input stream
+    std::ios::failbit; // operation attempted failed
+    std::ios::hardfail; // unrecoverable fail
+    std::ios::badbit; // invalid operation
+    std::ios::goodbit; // all above are not set
 
     eof() // eofbit
     fail() // failbit hardfail
@@ -96,7 +105,7 @@ int main() {
 
     // getline
     // the getline function defaults to the newline character '\n' as the default parameter
-    istream& getline (istream& is, string& str, char delim = '\n');
+    std::istream& getline (std::istream& is, std::string& str, char delim = '\n');
 
     return 0;
 } 
