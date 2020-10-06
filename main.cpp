@@ -70,20 +70,20 @@ int main() {
     std::ios::badbit; // invalid operation
     std::ios::goodbit; // all above are not set
 
-    eof() // eofbit
-    fail() // failbit hardfail
-    bad() // badbit
-    good() // goodbit
-    clear() // clear all flags
+    eof(); // eofbit
+    fail(); // failbit hardfail
+    bad(); // badbit
+    good(); // goodbit
+    clear(); // clear all flags
 
-    //eg
+    //eg (fstream object methods)
     if (outFile.fail()) {
-        cout << "we've failed, captain!" << endl
+        std::cout << "we've failed, captain!" << std::endl;
     }
 
     // no error flags if stream object is true
     if (dataFile) {
-        cout << "still working!" << endl;
+        std::cout << "still working!" << std::endl;
     }
 
     struct data {
