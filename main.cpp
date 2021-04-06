@@ -112,6 +112,8 @@ int main() {
     while (dataFile) { // while the file object has no error flags....
         fileStream >> test_struct.id;
         fileStream >> test_struct.first_name;
+        filestream >> test_struct.last_name;
+        filestream >> test_struct.major;
         // ....
     }
 
