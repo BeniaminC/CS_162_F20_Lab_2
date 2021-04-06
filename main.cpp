@@ -41,9 +41,9 @@ int main() {
     inputFile.close();
 
     // open settings of prototypes
-    std::ifstream(const char* filename, std::ios::openmode mode = std::ios::in);
-    std::ofstream(const char* filename, std::ios::openmode mode = std::ios::out);
-    std::fstream(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
+    std::ifstream(const char* filename, std::ios::openmode mode = std::ios::in); // input by default
+    std::ofstream(const char* filename, std::ios::openmode mode = std::ios::out); // output by defult
+    std::fstream(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out); // both by default
     // for c++11, you can pass in string objects;
     std::ifstream(const std::string& filename, std::ios::openmode mode = std::ios::in);
     std::ofstream(const std::string& filename, std::ios::openmode mode = std::ios::out);
@@ -55,8 +55,8 @@ int main() {
     std::fstream stream_obj(create_a_string, std::ios:in | std::ios::out | std::ios::app) ;
 
     //open prototypes
-    void open(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out);
-    void open(const std::string& filename, std::ios::openmode mode = std::ios::in | std::ios::out);
+    void open(const char* filename, std::ios::openmode mode = std::ios::in | std::ios::out); // accepts c-string
+    void open(const std::string& filename, std::ios::openmode mode = std::ios::in | std::ios::out); // accepts string objects
 
     // file mode flags
     std::ios::app; // oupput will always take place at the end of the file
@@ -81,7 +81,8 @@ int main() {
     std::ios::badbit; // invalid operation
     std::ios::goodbit; // all above are not set
 
-    eof(); // eofbit
+    // member functions
+    eof(); // eofbit, end of file
     fail(); // failbit hardfail
     bad(); // badbit
     good(); // goodbit
@@ -117,6 +118,20 @@ int main() {
     // getline
     // the getline function defaults to the newline character '\n' as the default parameter
     std::istream& getline (std::istream& is, std::string& str, char delim = '\n');
+    // getline is useful if you need to parse line-by-line or tokenize the line
+
+
+    // side note, how to move cursor to the beginning
+    input_file.seekg(0, ios::beg);
+    // it is wise to reset the flags
+    input_file.clear();
+
+    // Don't forget to close the file!
+    input_file.close();
+    
+    // you should always pass the stream object by reference because creating another stream object
+    // by value is expensive.
+}
 
     return 0;
 } 
