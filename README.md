@@ -12,3 +12,7 @@ Important concepts to understand by the end of this lab:
 - stream member functions (using them to parse through the file)
 - getline (why it's sometimes necessary)
 - passing stream objects by reference
+
+not covered in this code
+- sorting algorithms
+- tar files
