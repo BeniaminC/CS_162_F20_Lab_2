@@ -2,7 +2,7 @@
 
 Important concepts to understand by the end of this lab:
 
-- stream objects (ofstream, ifstream, and fstream objects)
+- file stream objects (ofstream, ifstream, and fstream objects)
 - input file operators (insertion operator and extraction operator "<<" and ">>")
 - cursor manipulation
 - flags (input, output, and appending are most important)
