@@ -16,3 +16,5 @@ Important concepts to understand by the end of this lab:
 not covered in this code
 - sorting algorithms
 - tar files
+
+NOTE: Some concepts may be extensions to lectures and labs (i.e. modern style C++ programming).
